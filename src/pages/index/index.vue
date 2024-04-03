@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import aBanner from '@/components/a-banner/a-banner.vue'
 import Navbar from './components/Navbar.vue'
 
 const { safeAreaInsets } = uni.getSystemInfoSync()
@@ -39,10 +38,14 @@ const banner = ref([
 </script>
 
 <template>
-  <Navbar />
+  <view class="page">
+    <Navbar />
 
-  <!-- banner 轮播图 -->
-  <a-banner :banner="banner" />
+    <!-- banner 轮播图 -->
+    <a-banner :banner="banner" />
+
+    12
+  </view>
 </template>
 
 <style lang="scss" scoped>
@@ -52,7 +55,7 @@ const banner = ref([
 </style>
 
 <style lang="scss">
-page {
-  background-color: #fcfcfc;
+.page {
+  background-color: #fafafa;
 }
 </style>

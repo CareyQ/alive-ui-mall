@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import type { BannerItem } from '@/types/home'
 
+const { screenWidth } = uni.getSystemInfoSync()
+const unit = ref(screenWidth! / 5)
+
 defineProps<{
   banner: BannerItem[]
 }>()
@@ -15,19 +18,20 @@ const onChange: UniHelper.SwiperOnChange = (event) => {
 <template>
   <!-- banner 轮播图 -->
   <view class="banner">
-    <swiper class="swiper" @change="onChange" circular :autoplay="false">
+    <swiper class="swiper" @change="onChange" circular autoplay>
       <swiper-item v-for="item in banner" :key="item.id">
         <navigator url="/pages/index/index" hover-class="none" class="navigator">
-          <image mode="aspectFill" class="image" :src="item.imgUrl" />
+          <image mode="widthFix" class="image" :src="item.imgUrl" />
         </navigator>
       </swiper-item>
     </swiper>
-    <!-- 指示点 -->
-    <view>
+
+    <view class="dto-wrap">
       <text
+        class="dot"
         v-for="(item, index) in banner"
         :key="item.id"
-        class="dot"
+        :style="{ width: unit + 'px' }"
         :class="{ active: index === activeIndex }"
       ></text>
     </view>
@@ -36,6 +40,18 @@ const onChange: UniHelper.SwiperOnChange = (event) => {
 
 <style lang="scss" scoped>
 .banner {
-  height: 50%;
+  height: 60%;
+}
+
+.dto-wrap {
+  display: flex;
+}
+
+.dot {
+  height: 6rpx;
+}
+
+.dot.active {
+  background-color: #f8870c;
 }
 </style>
