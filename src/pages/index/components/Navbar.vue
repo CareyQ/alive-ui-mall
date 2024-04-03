@@ -1,11 +1,9 @@
 <script setup lang="ts">
 const { safeAreaInsets } = uni.getSystemInfoSync()
-console.log(safeAreaInsets);
-
 </script>
 
 <template>
-  <view class="navbar" :style="{paddingTop: safeAreaInsets?.top + 'px'}">
+  <view class="navbar" :style="{ paddingTop: safeAreaInsets?.top + 'px' }">
     <!-- logo -->
     <view class="logo">
       <text class="logo-text">ALIVE</text>
@@ -14,5 +12,15 @@ console.log(safeAreaInsets);
 </template>
 
 <style lang="scss" scoped>
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  color: #fff;
+}
 
+.logo {
+  padding-left: 20rpx;
+}
 </style>
