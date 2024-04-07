@@ -21,7 +21,12 @@ module.exports = {
     }
   ],
   rules: {
-    'selector-type-no-unknown': [null],
+    'selector-type-no-unknown': [
+      true,
+      {
+        ignore: ['custom-elements']
+      }
+    ],
     'selector-class-pattern': '.',
     'selector-pseudo-element-no-unknown': [
       true,

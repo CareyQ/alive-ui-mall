@@ -13,5 +13,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '@/styles/base.scss';
+@import './styles/base';
+@import './styles/fonts';
 </style>

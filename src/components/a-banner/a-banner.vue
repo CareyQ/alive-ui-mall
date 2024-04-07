@@ -8,25 +8,43 @@ defineProps<{
   banner: BannerItem[]
 }>()
 
+const instance = getCurrentInstance()
 const activeIndex = ref(0)
+const bannerHeight = ref('430px')
 
 const onChange: UniHelper.SwiperOnChange = (event) => {
   activeIndex.value = event.detail.current
+  setImage()
+}
+
+const setImage = () => {
+  const query = uni.createSelectorQuery().in(instance)
+  query
+    .select('#img' + activeIndex.value)
+    .boundingClientRect((data) => {
+      const detail = data as UniApp.NodeInfo
+      bannerHeight.value = (detail.height || 430) + 'px'
+    })
+    .exec()
 }
 </script>
 
 <template>
   <!-- banner 轮播图 -->
-  <view class="banner">
-    <swiper class="swiper" @change="onChange" circular autoplay>
-      <swiper-item v-for="item in banner" :key="item.id">
+  <view class="banner" :style="{ height: bannerHeight }">
+    <swiper class="swiper" @change="onChange" circular :autoplay="false">
+      <swiper-item v-for="(item, index) in banner" :key="item.id">
         <navigator url="/pages/index/index" hover-class="none" class="navigator">
-          <image mode="widthFix" class="image" :src="item.imgUrl" />
+          <image mode="widthFix" class="image" :src="item.imgUrl" :id="'img' + index" @load="setImage" />
+          <view v-if="item.meta" class="banner-meta">
+            <view v-if="item.meta.title" class="meta-title">{{ item.meta.title }}</view>
+            <view v-if="item.meta.subTitle" class="meta-subtitle">{{ item.meta.subTitle }}</view>
+          </view>
         </navigator>
       </swiper-item>
     </swiper>
 
-    <view class="dto-wrap">
+    <view class="dot-wrap">
       <text
         class="dot"
         v-for="(item, index) in banner"
@@ -39,11 +57,7 @@ const onChange: UniHelper.SwiperOnChange = (event) => {
 </template>
 
 <style lang="scss" scoped>
-.banner {
-  height: 60%;
-}
-
-.dto-wrap {
+.dot-wrap {
   display: flex;
 }
 
@@ -53,5 +67,27 @@ const onChange: UniHelper.SwiperOnChange = (event) => {
 
 .dot.active {
   background-color: #f8870c;
+}
+
+.banner-meta {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20rpx;
+  color: #fff;
+  backdrop-filter: blur(6px);
+  background-color: rgba($color: #000, $alpha: 15%);
+}
+
+.meta-title {
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+  letter-spacing: 1px;
+}
+
+.meta-subtitle {
+  font-size: 22rpx;
+  opacity: 0.7;
 }
 </style>

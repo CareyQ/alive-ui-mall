@@ -8,7 +8,11 @@ const banner = ref([
     hrefUrl: '',
     id: '1',
     imgUrl: '/static/banner/01.jpg',
-    type: 1
+    type: 1,
+    meta: {
+      title: '吉利中国星X天宫钥匙套包',
+      subTitle: '匠心之作 经久耐用'
+    }
   },
   {
     hrefUrl: '',
@@ -35,16 +39,41 @@ const banner = ref([
     type: 1
   }
 ])
+
+const btnNav = ref([
+  {
+    id: '1',
+    icon: 'icon-goods',
+    link: '',
+    text: '每周新品'
+  },
+  {
+    id: '2',
+    icon: 'icon-zan',
+    link: '',
+    text: '热销好物'
+  },
+  {
+    id: '3',
+    icon: 'icon-coupon',
+    link: '',
+    text: '限时优惠'
+  },
+  {
+    id: '4',
+    icon: 'icon-date',
+    link: '',
+    text: '每日签到'
+  }
+])
 </script>
 
 <template>
   <view class="page">
     <Navbar />
-
-    <!-- banner 轮播图 -->
     <a-banner :banner="banner" />
-
-    12
+    <a-btn-nav :btn-nav="btnNav" />
+    121
   </view>
 </template>
 
