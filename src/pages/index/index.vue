@@ -11,7 +11,7 @@ const banner = ref([
     type: 1,
     meta: {
       title: '吉利中国星X天宫钥匙套包',
-      subTitle: '匠心之作 经久耐用'
+      subtitle: '匠心之作 经久耐用'
     }
   },
   {
@@ -64,6 +64,20 @@ const btnNav = ref([
     icon: 'icon-date',
     link: '',
     text: '每日签到'
+  }
+])
+
+const subject = ref([
+  {
+    name: '新品上架',
+    content: [
+      {
+        title: '吉利星越L智擎仿真车模1:64',
+        subtitle: '把玩指尖 艺术藏品',
+        price: 49,
+        pic: ''
+      }
+    ]
   }
 ])
 </script>

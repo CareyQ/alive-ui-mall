@@ -46,12 +46,12 @@ defineProps<{
   display: inline-block;
   width: fit-content;
   margin-right: 40rpx;
-  margin-left: 20rpx;
+  margin-left: 30rpx;
   font-size: 30rpx;
 }
 
 .categories-btn {
-  margin-right: 20rpx;
+  margin-right: 30rpx;
   font-size: 47rpx;
 }
 </style>

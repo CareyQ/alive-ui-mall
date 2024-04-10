@@ -38,7 +38,7 @@ const setImage = () => {
           <image mode="widthFix" class="image" :src="item.imgUrl" :id="'img' + index" @load="setImage" />
           <view v-if="item.meta" class="banner-meta">
             <view v-if="item.meta.title" class="meta-title">{{ item.meta.title }}</view>
-            <view v-if="item.meta.subTitle" class="meta-subtitle">{{ item.meta.subTitle }}</view>
+            <view v-if="item.meta.subtitle" class="meta-subtitle">{{ item.meta.subtitle }}</view>
           </view>
         </navigator>
       </swiper-item>
@@ -74,7 +74,7 @@ const setImage = () => {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 20rpx;
+  padding: 20rpx 30rpx;
   color: #fff;
   backdrop-filter: blur(6px);
   background-color: rgba($color: #000, $alpha: 15%);

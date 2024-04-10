@@ -17,7 +17,7 @@ export type BannerItem = {
   /** 元数据 */
   meta?: {
     title: string
-    subTitle: string
+    subtitle: string
   }
 }
 

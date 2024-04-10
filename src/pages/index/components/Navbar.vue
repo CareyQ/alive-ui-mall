@@ -46,7 +46,7 @@ const categories = ref([
 }
 
 .logo {
-  padding-left: 20rpx;
+  padding-left: 30rpx;
 }
 
 .logo-img {
