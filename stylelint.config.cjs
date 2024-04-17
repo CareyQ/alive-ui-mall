@@ -24,7 +24,7 @@ module.exports = {
     'selector-type-no-unknown': [
       true,
       {
-        ignore: ['custom-elements']
+        ignoreTypes: ['page', 'navigator', 'swiper', 'scroll-view']
       }
     ],
     'selector-class-pattern': '.',

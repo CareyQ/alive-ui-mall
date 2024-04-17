@@ -25,18 +25,18 @@ const categories = ref([
 </script>
 
 <template>
-  <view class="navbar" :style="{ paddingTop: safeAreaInsets!.top + 10 + 'px' }">
+  <view class="nav" :style="{ paddingTop: safeAreaInsets!.top + 10 + 'px' }">
     <!-- logo -->
     <view class="logo">
-      <image class="logo-img" src="@/static/logo.png" />
+      <text>ALIVE</text>
+      <text>商城</text>
     </view>
-
     <a-category-list :categories="categories" />
   </view>
 </template>
 
 <style lang="scss" scoped>
-.navbar {
+.nav {
   position: fixed;
   top: 0;
   left: 0;

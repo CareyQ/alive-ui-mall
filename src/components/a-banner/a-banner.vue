@@ -35,11 +35,7 @@ const setImage = () => {
     <swiper class="swiper" @change="onChange" circular :autoplay="false">
       <swiper-item v-for="(item, index) in banner" :key="item.id">
         <navigator url="/pages/index/index" hover-class="none" class="navigator">
-          <image mode="widthFix" class="image" :src="item.imgUrl" :id="'img' + index" @load="setImage" />
-          <view v-if="item.meta" class="banner-meta">
-            <view v-if="item.meta.title" class="meta-title">{{ item.meta.title }}</view>
-            <view v-if="item.meta.subtitle" class="meta-subtitle">{{ item.meta.subtitle }}</view>
-          </view>
+          <image mode="widthFix" class="image" :src="item.picUrl" :id="'img' + index" @load="setImage" />
         </navigator>
       </swiper-item>
     </swiper>

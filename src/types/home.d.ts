@@ -6,25 +6,22 @@ export type Entry = {
 
 /** 首页-广告区域数据类型 */
 export type BannerItem = {
-  /** 跳转链接 */
-  hrefUrl: string
   /** id */
   id: string
   /** 图片链接 */
-  imgUrl: string
+  picUrl: string
   /** 跳转类型 */
   type: number
-  /** 元数据 */
-  meta?: {
-    title: string
-    subtitle: string
-  }
+  /** 标题 */
+  title: string
+  /** 副标题 */
+  subtitle: string
 }
 
 /** 首页-按钮导航 */
 export type BtnNavItem = {
   id: string
-  icon: string
+  picUrl: string
   link: string
   text: string
 }
